@@ -146,8 +146,13 @@ button {
     display: flex;
     color: #fff;
     &__link {
-        color: #fff;
         margin-right: 35px;
+        img {
+            transition: all 300ms ease-in-out;
+            &:hover {
+                transform: scale(1.3);
+            }
+        }
     }
 }
 .pagination {
@@ -305,8 +310,24 @@ button {
     }
 }
 
+/*
+*   About us page styles
+*/
 
-
+.about {
+    margin-top: 50px;
+    &__heading {
+        @extend .contact__heading;
+    }
+    &__inner {
+        width: 60%;
+        margin: auto;
+    }
+    &__paragraph {
+        color: #fff;
+        line-height: 1.8;
+    }
+}
 
 
 

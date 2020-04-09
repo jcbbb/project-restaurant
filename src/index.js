@@ -7,7 +7,7 @@ import { socialMedia } from './modules/social-media.js';
 import { pagination } from './modules/pagination.js';
 import { menu } from './modules/menu.js';
 import { contact } from './modules/contact.js';
-
+import { about } from './modules/about.js';
 
 const content = document.querySelector('.content');
 const container = createElement('div', { class: 'container' });
@@ -29,9 +29,12 @@ function update(ev) {
         Contact: () => main.append(contact),
         Home: () => main.append(hero),
     }
-    if (page === 'Contact') {
+    footer.append(socialMedia, pagination)
+
+    if (page === 'Contact' || page === 'About') {
         pagination.remove();
     }
+
     pages[page]();
 }
 const links = document.querySelectorAll('nav a');
