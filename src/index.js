@@ -8,6 +8,7 @@ import { pagination } from './modules/pagination.js';
 import { menu } from './modules/menu.js';
 import { contact } from './modules/contact.js';
 import { about } from './modules/about.js';
+import { gsap } from 'gsap';
 
 const content = document.querySelector('.content');
 const container = createElement('div', { class: 'container' });
@@ -17,6 +18,15 @@ main.append(hero);
 footer.append(socialMedia, pagination);
 container.append(header, main, footer);
 content.append(nav, bubbleLg, bubbleSm, container);
+
+
+const links = document.querySelectorAll('nav a');
+const logoLink = document.querySelector('.header__logo');
+
+links.forEach((link) => {
+    link.addEventListener('click', update);
+});
+logoLink.addEventListener('click', update);
 
 
 function update(ev) {
@@ -37,11 +47,13 @@ function update(ev) {
 
     pages[page]();
 }
-const links = document.querySelectorAll('nav a');
-const logoLink = document.querySelector('.header__logo');
 
-links.forEach((link) => {
-    link.addEventListener('click', update);
-});
-logoLink.addEventListener('click', update);
+/*
+* Animations
+*/
 
+const tl = gsap.timeline({ defaults: { ease: 'Expo.easeInOut' } });
+tl.set('.content', { opacity: 0 });
+tl.to(".overlay", { scale: 28, duration: 2, delay: 1 })
+    .to('.content', { opacity: 1 }, "-=1")
+    .to('.overlay', { opacity: 0 }, "-=0.8");
