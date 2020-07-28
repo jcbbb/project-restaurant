@@ -1,2 +1,2 @@
 # Restaurant page
-[View in browser](https://avazkhan2808.github.io/project-restaurant/)
+[View in browser](https://jcbbb.github.io/project-restaurant/)
